@@ -1,0 +1,418 @@
+body {
+    padding-top: 64px;
+}
+
+/*ローディング========================================================*/
+#loading {
+    background-color: var(--light-grey);
+    position: fixed; /*画面に固定。スクロールしても動かない*/
+    inset: 0;/*画面全体に広げる*/
+    z-index: 9999;/*値が大きいほど手前にでる*/
+    display: grid;
+    place-items: center;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#loading p {
+    font-size: 2rem;
+    font-family: var(--oswald-font);
+    color: #fff;
+
+}
+
+/*ホーム画像*/
+.hero {
+  position: relative;/*子要素の position:absolute の基準点*/
+  height: 100vh;/*画面の高さ100%*/
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero .title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(20px);
+  /*translate(-50%,-50%) で中央合わせ。translateY(20px) で少し下にずらして“出現前”の位置に*/
+  opacity: 0;/*初期は透明*/
+  transition: opacity 1s ease, transform 1s ease;/*1秒で変化*/
+  color: #fff;
+  font-size: 64px;
+  z-index: 2;
+}
+
+.hero .title.is-show {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+
+/*ヘッダー===================================================================*/
+.site-header {
+  position: fixed;/*位置固定*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fff;
+  background-color: #fff;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}/*中身（ロゴとボタン）を左右に分け、縦は中央揃え*/
+
+.header-inner img {
+  height: 60px;
+  width: auto;
+}
+
+/* ハンバーガーボタン============================================================*/
+.menu-btn {
+  position: fixed;/*位置固定*/
+  top: 10px;
+  right: 20px;
+  z-index: 10001;
+  width: 48px;
+  height: 40px;
+  background: #fff;          /* 背景を白 */
+  border: none;
+  border-radius: 8px;        /* 角を少し丸く */
+  cursor: pointer;/*カーソルを合わせた際に手の形になる*/
+
+  display: flex;
+  flex-direction: column;/*縦に並べる*/
+  justify-content: center;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 三本線 */
+.menu-btn span {
+  display: block;
+  height: 3px;
+  background: #000;          /* 線を黒 */
+  margin: 3px 0;
+  border-radius: 2px;
+}
+
+
+/* メニュー本体 */
+.slide-menu {
+  position: fixed;/*位置固定*/
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: #222;
+  transform: translateX(-100%);/*左へ100%ずらし隠す*/
+  transition: transform 0.4s ease;/*0.4秒で滑らかに開閉*/
+  z-index: 10000;
+  padding: 60px 20px;
+}
+
+.slide-menu ul {
+  list-style: none;
+}
+
+.slide-menu li {
+  margin-bottom: 20px;
+}
+
+.slide-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* オーバーレイ */
+.menu-overlay {
+  position: fixed;/*位置固定*/
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;/*初期は見えない、クリックもできない状態*/
+  transition: 0.4s;
+  z-index: 9999;
+}
+
+/* 開いた状態 */
+.slide-menu.open {
+  transform: translateX(0);
+}
+
+.menu-overlay.show {/*show クラスが付いたらオーバーレイ表示*/
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 利用規約セクション=================================================================*/
+.terms {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 40px 24px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 利用規約 同意UI */
+.terms-agree {
+  margin-top: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.agree-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.agree-button {
+  width: 100%;
+  max-width: 320px;
+  padding: 12px 16px;
+  border: 2px solid #000;   /* ← 黒の枠線 */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.agree-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;/*押せないカーソル*/
+}
+
+
+/* 見出し */
+.terms h2 {
+  font-size: 2rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.terms h3 {
+  font-size: 1.25rem;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+/* 本文 */
+.terms p {
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+/* 箇条書き */
+.terms ul {
+  margin: 16px 0 24px 24px;
+}
+
+.terms li {
+  margin-bottom: 8px;
+  list-style: disc;/*黒丸表示*/
+}
+
+/* パスタの歴史=======================================================*/
+.history {
+  background: #fafafa;
+  padding: 80px 20px;
+}
+
+.history-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+.history-intro {
+  text-align: center;
+  margin-bottom: 48px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* 各時代ブロック */
+/* 初期状態（見えない） */
+.history-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 表示状態 */
+.history-item.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.history-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.history-item p {
+  line-height: 1.8;
+  color: #333;
+}
+
+.history-item img {
+  width: 100%;
+  height: 220px;          /* ← 全画像共通の高さ */
+  object-fit: cover;     /* 比率を保ったままトリミング */
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/*レシピ画面=================================================================*/
+/* ===== レシピグリッド ===== */
+.recipes {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.recipes h2{
+    color:#fff;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.recipe-card {
+  cursor: pointer;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.recipe-image {
+  position: relative;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform .5s ease;
+  display: block;
+}
+
+.recipe-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.recipe-overlay h3 {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.recipe-card:hover img {
+  transform: scale(1.1);/*ホバーで画像を拡大*/
+}
+
+.recipe-card:hover .recipe-overlay {
+  opacity: 1;
+}
+
+/* ===== モーダル ===== */
+.recipe-modal {
+  position: fixed;/*位置固定*/
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 20000;
+}
+
+.recipe-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 24px;
+  border-radius: 16px;
+  transform: scale(.9);
+  transition: transform .3s ease;
+}
+
+.recipe-modal.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-content img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin: 16px 0;
+  border-radius: 12px;
+}
+
+.modal-content p {
+  line-height: 1.7;
+  color: #444;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+body.recipe {
+  background-image: url("../images/recipe_image.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;/*位置固定*/
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"><!--デバイスに合わせた表示幅に-->
+        <title>Pasta Note</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"><!--CSSリセットのスタイルシート-->
+        <link rel="stylesheet" href="css/style.css"><!--自分で書いたCSSにする-->
+        <script src="js/script.js" defer></script><!--javascriptの開始-->
+</head>
+<body class="history">
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="images/PastaTitle.png">
+            <button class="menu-btn" id="menuBtn" aria-label="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <nav class="slide-menu" id="slideMenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Recipe.html">Recipe</a></li>
+            <li><a href="History.html">History</a></li>
+            <li><a href="Terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+    </header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+    <main>
+        <div id="loading">
+            <p>Loading...</p>
+        </div>
+    </main>
+
+<section class="history">
+  <div class="history-inner">
+
+    <h2 class="section-title">パスタの歴史</h2>
+
+    <p class="history-intro">
+      パスタはイタリア料理の象徴として知られていますが、
+      その歴史は非常に古く、さまざまな文化の影響を受けながら
+      現代の姿へと進化してきました。
+    </p>
+
+    <div class="history-item">
+      <h3>古代</h3>
+      <p>
+        パスタの起源は古代にさかのぼります。
+        古代ローマやギリシャでは、小麦を練って作った
+        麺状の食べ物がすでに存在していたとされています。
+      </p>
+      <img src="images/kodai.png">
+    </div>
+
+    <div class="history-item">
+      <h3>中世</h3>
+      <p>
+        中世になると、保存性の高い乾燥パスタが誕生しました。
+        特に南イタリアでは、乾燥パスタが広まり、
+        船乗りや商人の食料として重宝されました。
+      </p>
+      <img src="images/tyusei.png">
+    </div>
+
+    <div class="history-item">
+      <h3>近代</h3>
+      <p>
+        産業革命以降、製麺技術が発展し、
+        パスタは一般家庭にも広く普及しました。
+        トマトソースとの組み合わせもこの時代に定着します。
+      </p>
+      <img src="images/kindai.png">
+    </div>
+
+    <div class="history-item">
+      <h3>現代</h3>
+      <p>
+        現代では、パスタは世界中で親しまれ、
+        形状やソースの種類も多様化しています。
+        伝統を守りつつ、新しいアレンジも生まれ続けています。
+      </p>
+      <img src="images/gendai.png">
+    </div>
+
+  </div>
+</section>
+
+</body>

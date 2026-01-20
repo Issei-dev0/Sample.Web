@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"><!--デバイスに合わせた表示幅に-->
+        <title>Pasta Note</title>
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"><!--CSSリセットのスタイルシート-->
+        <link rel="stylesheet" href="css/style.css"><!--自分で書いたCSSにする-->
+        <script src="js/script.js" defer></script><!--javascriptの開始-->
+</head>
+<body class="recipe">
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="images/PastaTitle.png">
+            <button class="menu-btn" id="menuBtn" aria-label="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <nav class="slide-menu" id="slideMenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Recipe.html">Recipe</a></li>
+            <li><a href="History.html">History</a></li>
+            <li><a href="Terms.html">Terms of Use</a></li>
+          </ul>
+        </nav>
+    </header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+    <main>
+        <div id="loading">
+            <p>Loading...</p>
+        </div>
+    </main>
+<section class="recipes">
+  <h2 class="section-title">おすすめのパスタ</h2>
+
+  <div class="recipe-grid">
+
+    <!--dataはモーダル用-->
+    <div class="recipe-card"
+         data-title="ペペロンチーノ"
+         data-text="にんにくと唐辛子、オリーブオイルだけで作るシンプルで奥深いパスタ。"
+         data-image="images/pepe.png">
+      <div class="recipe-image">
+        <img src="images/pepe.png" alt="ペペロンチーノ">
+        <div class="recipe-overlay">
+          <h3>ペペロンチーノ</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card"
+         data-title="ボンゴレビアンコ"
+         data-text="あさりの旨味を白ワインで引き出した、海の香り豊かな一皿。"
+         data-image="images/bongore.png">
+      <div class="recipe-image">
+        <img src="images/bongore.png" alt="ボンゴレビアンコ">
+        <div class="recipe-overlay">
+          <h3>ボンゴレビアンコ</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card"
+         data-title="ツナパスタ"
+         data-text="手軽に作れてコクもある、忙しい日の定番パスタ。"
+         data-image="images/tuna.png">
+      <div class="recipe-image">
+        <img src="images/tuna.png" alt="ツナパスタ">
+        <div class="recipe-overlay">
+          <h3>ツナパスタ</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card"
+         data-title="カルボナーラ"
+         data-text="卵とチーズの濃厚な味わいがクセになるローマの名作。"
+         data-image="images/karubo.png">
+      <div class="recipe-image">
+        <img src="images/karubo.png" alt="カルボナーラ">
+        <div class="recipe-overlay">
+          <h3>カルボナーラ</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card"
+         data-title="ジェノベーゼ"
+         data-text="バジルの爽やかな香りが広がる北イタリアの定番パスタ。"
+         data-image="images/jeno.png">
+      <div class="recipe-image">
+        <img src="images/jeno.png" alt="ジェノベーゼ">
+        <div class="recipe-overlay">
+          <h3>ジェノベーゼ</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-card"
+         data-title="鯖トマトパスタ"
+         data-text="鯖の旨味とトマトの酸味が相性抜群の和風アレンジ。"
+         data-image="images/sabatoma.png">
+      <div class="recipe-image">
+        <img src="images/sabatoma.png" alt="鯖トマトパスタ">
+        <div class="recipe-overlay">
+          <h3>鯖トマトパスタ</h3>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!--モーダルはクリックしたらだす詳細ウィンドウ。6つのメニューで使いまわし-->
+<div class="recipe-modal" id="recipeModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose"></button>
+    <h2 id="modalTitle"></h2>
+    <img id="modalImage" alt="">
+    <p id="modalText"></p>
+  </div>
+</div>
+
+</body>

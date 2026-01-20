@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"><!--デバイスに合わせた表示幅に-->
+        <title>Pasta Note</title><!--ブラウザのタブに表示されるページタイトル-->
+        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"><!--CSSリセットのスタイルシート-->
+        <link rel="stylesheet" href="css/style.css"><!--自分で書いたCSSにする-->
+        <script src="js/script.js" defer></script><!--javascriptの開始-->
+</head>
+<body class="home">
+    <header class="site-header">
+        <div class="header-inner">
+            <img src="images/PastaTitle.png" alt="Pasta Noteロゴ">
+            <button class="menu-btn" id="menuBtn" aria-label="menu">
+                 <!--idはJSで識別するためのもの。ariaはアイコンだけのボタンでも読み上げで「menu」と説明できるようにする属性-->
+                <span></span>
+                <span></span>
+                <span></span><!--ハンバーガーメニューの線-->
+            </button>
+        </div>
+
+        <nav class="slide-menu" id="slideMenu">
+          <ul><!--ul=箇条書き開始。li=項目-->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Recipe.html">Recipe</a></li>
+            <li><a href="History.html">History</a></li>
+            <li><a href="Terms.html">Teams of Use</a></li>
+          </ul>
+        </nav>
+    </header>
+
+<div class="menu-overlay" id="menuOverlay"></div><!--半透明レイヤー-->
+    <main>
+        <div id="loading">
+            <p>Loading...</p>
+            
+        </div>
+        <section class="hero">
+            <h1 class="title">Pasta Note</h1>
+            <img src="images/pasta_head.png" alt="パスタ画像">
+        </section>
+    </main>
+</body>
