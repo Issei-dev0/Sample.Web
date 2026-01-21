@@ -416,3 +416,8 @@ body.recipe {
   background-repeat: no-repeat;
   background-attachment: fixed;/*位置固定*/
 }
+
+:root{
+  --light-grey:#f3f3f3;
+  --oswald-font: "Oswald", sans-serif;
+}
